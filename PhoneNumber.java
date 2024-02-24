@@ -15,7 +15,9 @@ public class PhoneNumber {
     // Метод, который добавляет числа в книгу
     public static void addNumber(String key, int value, Map<String, ArrayList<Integer>> map) {
         if (map.containsKey(key)) {
-            map.get(key).add(value);
+            if (map.get(key).contains(value))
+                System.out.println("ВНИМАНИЕ: повторный запрос на добавление значения " + value + " к ключу «" + key + "». Проигноринован!");
+            else map.get(key).add(value);
         } else {
             ArrayList<Integer> list = new ArrayList<>();
             list.add(value);
@@ -49,6 +51,7 @@ public class PhoneNumber {
         addNumber("Иванова", 1234567, bookPhone);
         addNumber("Иванов", 123459999, bookPhone);
         addNumber("Павлов", 123457899, bookPhone);
+        addNumber("Иванова", 1234, bookPhone);
         printBook(bookPhone);
     }
 }
