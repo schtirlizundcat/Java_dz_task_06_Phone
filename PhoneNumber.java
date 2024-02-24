@@ -16,7 +16,7 @@ public class PhoneNumber {
     public static void addNumber(String key, int value, Map<String, ArrayList<Integer>> map) {
         if (map.containsKey(key)) {
             if (map.get(key).contains(value))
-                System.out.println("ВНИМАНИЕ: повторный запрос на добавление значения " + value + " к ключу «" + key + "». Проигноринован!");
+                System.out.println("ВНИМАНИЕ: повторный запрос на добавление значения " + value + " к ключу «" + key + "». Проигноринован!"); // Добавление проверки уникальности номеров
             else map.get(key).add(value);
         } else {
             ArrayList<Integer> list = new ArrayList<>();
